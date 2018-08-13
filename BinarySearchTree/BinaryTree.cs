@@ -33,15 +33,10 @@ namespace BinarySearchTree
             }
             count++;
         }
-        public void DisplayTree(Node d)
-        {
-            if (d == null)
-            {
-                return;
-            }
-            DisplayTree(root.left);
-            DisplayTree(root.right);
-        }
 
+        public bool Search(int searchNum)
+        {
+            return root.Search(root, searchNum);
+        }
     }
 }

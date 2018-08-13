@@ -27,7 +27,16 @@ namespace BinarySearchTree
             }
             else if (node.data < input)
             {
-                return SetNode(node.right, input);
+                if(node.right == null)
+                {
+                    node.right = new Node(input);
+                    return node.right;
+                }
+                else
+                {
+                    return SetNode(node.right, input);
+                }
+                
             }
             else if (node.data > input)
             {
@@ -39,6 +48,30 @@ namespace BinarySearchTree
             }
         }
 
-
+        public bool Search(Node node, int numSearch)
+        {
+            if (node == null)
+            {
+                return false;
+            }
+            else if (node.data == numSearch)
+            {
+                Console.WriteLine("Your number was found!");
+                Console.WriteLine(node.data);
+                return true;
+            }
+            else if (node.data < numSearch)
+            {
+                return Search(node.right, numSearch);
+            }
+            else if (node.data > numSearch)
+            {
+                return Search(node.left, numSearch);
+            }
+            else
+            {
+                throw new System.ArgumentException("That item is not in this tree!");
+            }
+        }
     }
 }
