@@ -13,7 +13,10 @@ namespace BinarySearchTree
             BinaryTree tree = new BinaryTree();
 
             tree.Add(12);
-            Console.WriteLine(tree);
+            tree.Add(14);
+            tree.Add(11);
+            tree.Add(1);
+            Console.WriteLine(tree.count);
             Console.ReadLine();
         }
     }

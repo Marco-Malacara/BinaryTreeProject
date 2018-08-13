@@ -8,8 +8,8 @@ namespace BinarySearchTree
 {
     class BinaryTree
     {
-        Node root;
-        int count;
+        public Node root;
+        public int count;
         public BinaryTree()
         {
             root = null;

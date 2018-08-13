@@ -14,7 +14,7 @@ namespace BinarySearchTree
 
         public Node(int value)
         {
-            data = 0;
+            data = value;
             left = null;
             right = null;
         }
