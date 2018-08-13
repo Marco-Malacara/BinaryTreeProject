@@ -20,7 +20,6 @@ namespace BinarySearchTree
             tree.Add(95);
             tree.Add(65);
             tree.Add(75);
-            //tree.Search(45);
             Console.WriteLine(tree.Search(25));
             Console.ReadLine();
         }

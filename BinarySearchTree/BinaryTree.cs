@@ -9,7 +9,6 @@ namespace BinarySearchTree
     class BinaryTree
     {
         public Node root;
-        public int count;
         public BinaryTree()
         {
             root = null;
@@ -31,7 +30,6 @@ namespace BinarySearchTree
             {
                 root.SetNode(root, num);
             }
-            count++;
         }
 
         public bool Search(int searchNum)
