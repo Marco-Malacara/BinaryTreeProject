@@ -8,19 +8,40 @@ namespace BinarySearchTree
 {
     class BinaryTree
     {
-        Node rootNode = new Node();
+        Node root;
+        int count;
         public BinaryTree()
         {
-           
+            root = null;
+            count = 0;
         }
 
-        public void Add(Node node, int input)
+        public bool IsEmpty()
         {
-            if (node = 0)
-            {
-                node = new BinaryTree();
-                node.value = input;
-            }
+            return root == null;
         }
+
+        public void Add(int num)
+        {
+            if (IsEmpty())
+            {
+                root = new Node(num);
+            }
+            else
+            {
+                root.SetNode(root, num);
+            }
+            count++;
+        }
+        public void DisplayTree(Node d)
+        {
+            if (d == null)
+            {
+                return;
+            }
+            DisplayTree(root.left);
+            DisplayTree(root.right);
+        }
+
     }
 }

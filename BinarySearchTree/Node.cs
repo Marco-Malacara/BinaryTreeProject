@@ -19,16 +19,26 @@ namespace BinarySearchTree
             right = null;
         }
 
-        public void InputData(Node node, int input)
+        public Node SetNode (Node node, int input)
         {
             if (node == null)
             {
-                node = new Node(input);
+                return node = new Node(input);
             }
             else if (node.data < input)
             {
-                
+                return SetNode(node.right, input);
+            }
+            else if (node.data > input)
+            {
+                return SetNode(node.left, input);
+            }
+            else
+            {
+                throw new System.ArgumentException("Whoops! You broke something....");
             }
         }
+
+
     }
 }
