@@ -11,12 +11,16 @@ namespace BinarySearchTree
         public int data;
         public Node left;
         public Node right;
+        private int movedLeft;
+        private int movedRight;
 
         public Node(int value)
         {
             data = value;
             left = null;
             right = null;
+            movedLeft = 0;
+            movedRight = 0;
         }
 
         public Node SetNode (Node node, int input)
@@ -40,7 +44,15 @@ namespace BinarySearchTree
             }
             else if (node.data > input)
             {
-                return SetNode(node.left, input);
+                if (node.left == null)
+                {
+                    node.left = new Node(input);
+                    return node.left;
+                }
+                else
+                {
+                    return SetNode(node.left, input);
+                }
             }
             else
             {
@@ -56,16 +68,18 @@ namespace BinarySearchTree
             }
             else if (node.data == numSearch)
             {
-                Console.WriteLine("Your number was found!");
-                Console.WriteLine(node.data);
+                Console.WriteLine("Your search number " + node.data + " was found!");
+                Console.WriteLine("It was " + movedLeft +  " to the left" + " and " + movedRight + " to the right!");
                 return true;
             }
             else if (node.data < numSearch)
             {
+                movedRight++;
                 return Search(node.right, numSearch);
             }
             else if (node.data > numSearch)
             {
+                movedLeft++;
                 return Search(node.left, numSearch);
             }
             else
